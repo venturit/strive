@@ -1,0 +1,451 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    %title STRIVE - Dashboard
+    %script{:crossorigin => "anonymous", :src => "https://kit.fontawesome.com/7b8c80e207.js"}
+    %link{:href => "https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i", :rel => "stylesheet"}/
+    / Custom styles for this template
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'sb-admin-2', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'sb-admin-2', 'data-turbolinks-track': 'reload'
+  %body#page-top
+    / Page Wrapper
+    #wrapper
+      / Sidebar
+      %ul#accordionSidebar.navbar-nav.bg-gradient-primary.sidebar.sidebar-dark.accordion
+        / Sidebar - Brand
+        %a.sidebar-brand.d-flex.align-items-center.justify-content-center{:href => "/"}
+          .sidebar-brand-icon.rotate-n-15
+            %i.fas.fa-grin-hearts
+          .sidebar-brand-text.mx-3
+            STRIVE
+        / Divider
+        %hr.sidebar-divider.my-0/
+        / Nav Item - Dashboard
+        %li.nav-item.active
+          %a.nav-link{:href => "index.html"}
+            %i.fas.fa-fw.fa-tachometer-alt
+            %span Dashboard
+        / Divider
+        %hr.sidebar-divider/
+        / Heading
+        .sidebar-heading
+          Interface
+        / Nav Item - Pages Collapse Menu
+        %li.nav-item
+          %a.nav-link.collapsed{"aria-controls" => "collapseTwo", "aria-expanded" => "true", "data-target" => "#collapseTwo", "data-toggle" => "collapse", :href => "#"}
+            %i.fas.fa-fw.fa-cog
+            %span Components
+          #collapseTwo.collapse{"aria-labelledby" => "headingTwo", "data-parent" => "#accordionSidebar"}
+            .bg-white.py-2.collapse-inner.rounded
+              %h6.collapse-header Custom Components:
+              %a.collapse-item{:href => "buttons.html"} Buttons
+              %a.collapse-item{:href => "cards.html"} Cards
+        / Nav Item - Utilities Collapse Menu
+        %li.nav-item
+          %a.nav-link.collapsed{"aria-controls" => "collapseUtilities", "aria-expanded" => "true", "data-target" => "#collapseUtilities", "data-toggle" => "collapse", :href => "#"}
+            %i.fas.fa-fw.fa-wrench
+            %span Utilities
+          #collapseUtilities.collapse{"aria-labelledby" => "headingUtilities", "data-parent" => "#accordionSidebar"}
+            .bg-white.py-2.collapse-inner.rounded
+              %h6.collapse-header Custom Utilities:
+              %a.collapse-item{:href => "utilities-color.html"} Colors
+              %a.collapse-item{:href => "utilities-border.html"} Borders
+              %a.collapse-item{:href => "utilities-animation.html"} Animations
+              %a.collapse-item{:href => "utilities-other.html"} Other
+        / Divider
+        %hr.sidebar-divider/
+        / Heading
+        .sidebar-heading
+          Addons
+        / Nav Item - Pages Collapse Menu
+        %li.nav-item
+          %a.nav-link.collapsed{"aria-controls" => "collapsePages", "aria-expanded" => "true", "data-target" => "#collapsePages", "data-toggle" => "collapse", :href => "#"}
+            %i.fas.fa-fw.fa-folder
+            %span Pages
+          #collapsePages.collapse{"aria-labelledby" => "headingPages", "data-parent" => "#accordionSidebar"}
+            .bg-white.py-2.collapse-inner.rounded
+              %h6.collapse-header Login Screens:
+              %a.collapse-item{:href => "login.html"} Login
+              %a.collapse-item{:href => "register.html"} Register
+              %a.collapse-item{:href => "forgot-password.html"} Forgot Password
+              .collapse-divider
+              %h6.collapse-header Other Pages:
+              %a.collapse-item{:href => "404.html"} 404 Page
+              %a.collapse-item{:href => "blank.html"} Blank Page
+        / Nav Item - Charts
+        %li.nav-item
+          %a.nav-link{:href => "charts.html"}
+            %i.fas.fa-fw.fa-chart-area
+            %span Charts
+        / Nav Item - Tables
+        %li.nav-item
+          %a.nav-link{:href => "tables.html"}
+            %i.fas.fa-fw.fa-table
+            %span Tables
+        / Divider
+        %hr.sidebar-divider.d-none.d-md-block/
+        / Sidebar Toggler (Sidebar)
+        .text-center.d-none.d-md-inline
+          %button#sidebarToggle.rounded-circle.border-0
+      / End of Sidebar
+      / Content Wrapper
+      #content-wrapper.d-flex.flex-column
+        / Main Content
+        #content
+          / Topbar
+          %nav.navbar.navbar-expand.navbar-light.bg-white.topbar.mb-4.static-top.shadow
+            / Sidebar Toggle (Topbar)
+            %button#sidebarToggleTop.btn.btn-link.d-md-none.rounded-circle.mr-3
+              %i.fa.fa-bars
+            / Topbar Search
+            %form.d-none.d-sm-inline-block.form-inline.mr-auto.ml-md-3.my-2.my-md-0.mw-100.navbar-search
+              .input-group
+                %input.form-control.bg-light.border-0.small{"aria-describedby" => "basic-addon2", "aria-label" => "Search", :placeholder => "Search for...", :type => "text"}/
+                .input-group-append
+                  %button.btn.btn-primary{:type => "button"}
+                    %i.fas.fa-search.fa-sm
+            / Topbar Navbar
+            %ul.navbar-nav.ml-auto
+              / Nav Item - Search Dropdown (Visible Only XS)
+              %li.nav-item.dropdown.no-arrow.d-sm-none
+                %a#searchDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  %i.fas.fa-search.fa-fw
+                / Dropdown - Messages
+                .dropdown-menu.dropdown-menu-right.p-3.shadow.animated--grow-in{"aria-labelledby" => "searchDropdown"}
+                  %form.form-inline.mr-auto.w-100.navbar-search
+                    .input-group
+                      %input.form-control.bg-light.border-0.small{"aria-describedby" => "basic-addon2", "aria-label" => "Search", :placeholder => "Search for...", :type => "text"}/
+                      .input-group-append
+                        %button.btn.btn-primary{:type => "button"}
+                          %i.fas.fa-search.fa-sm
+              / Nav Item - Alerts
+              %li.nav-item.dropdown.no-arrow.mx-1
+                %a#alertsDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  %i.fas.fa-bell.fa-fw
+                  / Counter - Alerts
+                  %span.badge.badge-danger.badge-counter 3+
+                / Dropdown - Alerts
+                .dropdown-list.dropdown-menu.dropdown-menu-right.shadow.animated--grow-in{"aria-labelledby" => "alertsDropdown"}
+                  %h6.dropdown-header
+                    Alerts Center
+                  %a.dropdown-item.d-flex.align-items-center{:href => "#"}
+                    .mr-3
+                      .icon-circle.bg-primary
+                        %i.fas.fa-file-alt.text-white
+                    %div
+                      .small.text-gray-500 December 12, 2019
+                      %span.font-weight-bold A new monthly report is ready to download!
+                  %a.dropdown-item.d-flex.align-items-center{:href => "#"}
+                    .mr-3
+                      .icon-circle.bg-success
+                        %i.fas.fa-donate.text-white
+                    %div
+                      .small.text-gray-500 December 7, 2019
+                      $290.29 has been deposited into your account!
+                  %a.dropdown-item.d-flex.align-items-center{:href => "#"}
+                    .mr-3
+                      .icon-circle.bg-warning
+                        %i.fas.fa-exclamation-triangle.text-white
+                    %div
+                      .small.text-gray-500 December 2, 2019
+                      Spending Alert: We've noticed unusually high spending for your account.
+                  %a.dropdown-item.text-center.small.text-gray-500{:href => "#"} Show All Alerts
+              / Nav Item - Messages
+              %li.nav-item.dropdown.no-arrow.mx-1
+                %a#messagesDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  %i.fas.fa-envelope.fa-fw
+                  / Counter - Messages
+                  %span.badge.badge-danger.badge-counter 7
+                / Dropdown - Messages
+                .dropdown-list.dropdown-menu.dropdown-menu-right.shadow.animated--grow-in{"aria-labelledby" => "messagesDropdown"}
+                  %h6.dropdown-header
+                    Message Center
+                  %a.dropdown-item.d-flex.align-items-center{:href => "#"}
+                    .dropdown-list-image.mr-3
+                      %img.rounded-circle{:alt => "", :src => "https://source.unsplash.com/fn_BT9fwg_E/60x60"}/
+                      .status-indicator.bg-success
+                    .font-weight-bold
+                      .text-truncate Hi there! I am wondering if you can help me with a problem I've been having.
+                      .small.text-gray-500 Emily Fowler · 58m
+                  %a.dropdown-item.d-flex.align-items-center{:href => "#"}
+                    .dropdown-list-image.mr-3
+                      %img.rounded-circle{:alt => "", :src => "https://source.unsplash.com/AU4VPcFN4LE/60x60"}/
+                      .status-indicator
+                    %div
+                      .text-truncate I have the photos that you ordered last month, how would you like them sent to you?
+                      .small.text-gray-500 Jae Chun · 1d
+                  %a.dropdown-item.d-flex.align-items-center{:href => "#"}
+                    .dropdown-list-image.mr-3
+                      %img.rounded-circle{:alt => "", :src => "https://source.unsplash.com/CS2uCrpNzJY/60x60"}/
+                      .status-indicator.bg-warning
+                    %div
+                      .text-truncate Last month's report looks great, I am very happy with the progress so far, keep up the good work!
+                      .small.text-gray-500 Morgan Alvarez · 2d
+                  %a.dropdown-item.d-flex.align-items-center{:href => "#"}
+                    .dropdown-list-image.mr-3
+                      %img.rounded-circle{:alt => "", :src => "https://source.unsplash.com/Mv9hjnEUHR4/60x60"}/
+                      .status-indicator.bg-success
+                    %div
+                      .text-truncate Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...
+                      .small.text-gray-500 Chicken the Dog · 2w
+                  %a.dropdown-item.text-center.small.text-gray-500{:href => "#"} Read More Messages
+              .topbar-divider.d-none.d-sm-block
+              / Nav Item - User Information
+              %li.nav-item.dropdown.no-arrow
+                %a#userDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  %span.mr-2.d-none.d-lg-inline.text-gray-600.small Valerie Luna
+                  %img.img-profile.rounded-circle{:src => "https://source.unsplash.com/QAB-WJcbgJk/60x60"}/
+                / Dropdown - User Information
+                .dropdown-menu.dropdown-menu-right.shadow.animated--grow-in{"aria-labelledby" => "userDropdown"}
+                  %a.dropdown-item{:href => "#"}
+                    %i.fas.fa-user.fa-sm.fa-fw.mr-2.text-gray-400
+                    Profile
+                  %a.dropdown-item{:href => "#"}
+                    %i.fas.fa-cogs.fa-sm.fa-fw.mr-2.text-gray-400
+                    Settings
+                  %a.dropdown-item{:href => "#"}
+                    %i.fas.fa-list.fa-sm.fa-fw.mr-2.text-gray-400
+                    Activity Log
+                  .dropdown-divider
+                  
+                  %a.dropdown-item{"data-target" => "#logoutModal", "data-toggle" => "modal", :href => "#"}
+                    = link_to destroy_user_session_path(authenticity_token: form_authenticity_token()), :method =>:delete, :class =>"dropdown-item" do
+                      %i.fas.fa-sign-out-alt.fa-sm.fa-fw.mr-2.text-gray-400
+                      Logout
+                    
+          / End of Topbar
+          / Begin Page Content
+          .container-fluid
+            / Page Heading
+            .d-sm-flex.align-items-center.justify-content-between.mb-4
+              %h1.h3.mb-0.text-gray-800 Dashboard
+              %a.d-none.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm{:href => "#"}
+                %i.fas.fa-download.fa-sm.text-white-50
+                Generate Report
+            / Content Row
+            .row
+              / Earnings (Monthly) Card Example
+              .col-xl-3.col-md-6.mb-4
+                .card.border-left-primary.shadow.h-100.py-2
+                  .card-body
+                    .row.no-gutters.align-items-center
+                      .col.mr-2
+                        .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Earnings (Monthly)
+                        .h5.mb-0.font-weight-bold.text-gray-800 $40,000
+                      .col-auto
+                        %i.fas.fa-calendar.fa-2x.text-gray-300
+              / Earnings (Monthly) Card Example
+              .col-xl-3.col-md-6.mb-4
+                .card.border-left-success.shadow.h-100.py-2
+                  .card-body
+                    .row.no-gutters.align-items-center
+                      .col.mr-2
+                        .text-xs.font-weight-bold.text-success.text-uppercase.mb-1 Earnings (Annual)
+                        .h5.mb-0.font-weight-bold.text-gray-800 $215,000
+                      .col-auto
+                        %i.fas.fa-dollar-sign.fa-2x.text-gray-300
+              / Earnings (Monthly) Card Example
+              .col-xl-3.col-md-6.mb-4
+                .card.border-left-info.shadow.h-100.py-2
+                  .card-body
+                    .row.no-gutters.align-items-center
+                      .col.mr-2
+                        .text-xs.font-weight-bold.text-info.text-uppercase.mb-1 Tasks
+                        .row.no-gutters.align-items-center
+                          .col-auto
+                            .h5.mb-0.mr-3.font-weight-bold.text-gray-800 50%
+                          .col
+                            .progress.progress-sm.mr-2
+                              .progress-bar.bg-info{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "50", :role => "progressbar", :style => "width: 50%"}
+                      .col-auto
+                        %i.fas.fa-clipboard-list.fa-2x.text-gray-300
+              / Pending Requests Card Example
+              .col-xl-3.col-md-6.mb-4
+                .card.border-left-warning.shadow.h-100.py-2
+                  .card-body
+                    .row.no-gutters.align-items-center
+                      .col.mr-2
+                        .text-xs.font-weight-bold.text-warning.text-uppercase.mb-1 Pending Requests
+                        .h5.mb-0.font-weight-bold.text-gray-800 18
+                      .col-auto
+                        %i.fas.fa-comments.fa-2x.text-gray-300
+            / Content Row
+            .row
+              / Area Chart
+              .col-xl-8.col-lg-7
+                .card.shadow.mb-4
+                  / Card Header - Dropdown
+                  .card-header.py-3.d-flex.flex-row.align-items-center.justify-content-between
+                    %h6.m-0.font-weight-bold.text-primary Earnings Overview
+                    .dropdown.no-arrow
+                      %a#dropdownMenuLink.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                        %i.fas.fa-ellipsis-v.fa-sm.fa-fw.text-gray-400
+                      .dropdown-menu.dropdown-menu-right.shadow.animated--fade-in{"aria-labelledby" => "dropdownMenuLink"}
+                        .dropdown-header Dropdown Header:
+                        %a.dropdown-item{:href => "#"} Action
+                        %a.dropdown-item{:href => "#"} Another action
+                        .dropdown-divider
+                        %a.dropdown-item{:href => "#"} Something else here
+                  / Card Body
+                  .card-body
+                    .chart-area
+                      %canvas#myAreaChart
+              / Pie Chart
+              .col-xl-4.col-lg-5
+                .card.shadow.mb-4
+                  / Card Header - Dropdown
+                  .card-header.py-3.d-flex.flex-row.align-items-center.justify-content-between
+                    %h6.m-0.font-weight-bold.text-primary Revenue Sources
+                    .dropdown.no-arrow
+                      %a#dropdownMenuLink.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                        %i.fas.fa-ellipsis-v.fa-sm.fa-fw.text-gray-400
+                      .dropdown-menu.dropdown-menu-right.shadow.animated--fade-in{"aria-labelledby" => "dropdownMenuLink"}
+                        .dropdown-header Dropdown Header:
+                        %a.dropdown-item{:href => "#"} Action
+                        %a.dropdown-item{:href => "#"} Another action
+                        .dropdown-divider
+                        %a.dropdown-item{:href => "#"} Something else here
+                  / Card Body
+                  .card-body
+                    .chart-pie.pt-4.pb-2
+                      %canvas#myPieChart
+                    .mt-4.text-center.small
+                      %span.mr-2
+                        %i.fas.fa-circle.text-primary
+                        Direct
+                      %span.mr-2
+                        %i.fas.fa-circle.text-success
+                        Social
+                      %span.mr-2
+                        %i.fas.fa-circle.text-info
+                        Referral
+            / Content Row
+            .row
+              / Content Column
+              .col-lg-6.mb-4
+                / Project Card Example
+                .card.shadow.mb-4
+                  .card-header.py-3
+                    %h6.m-0.font-weight-bold.text-primary Projects
+                  .card-body
+                    %h4.small.font-weight-bold
+                      Server Migration
+                      %span.float-right 20%
+                    .progress.mb-4
+                      .progress-bar.bg-danger{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "20", :role => "progressbar", :style => "width: 20%"}
+                    %h4.small.font-weight-bold
+                      Sales Tracking
+                      %span.float-right 40%
+                    .progress.mb-4
+                      .progress-bar.bg-warning{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "40", :role => "progressbar", :style => "width: 40%"}
+                    %h4.small.font-weight-bold
+                      Customer Database
+                      %span.float-right 60%
+                    .progress.mb-4
+                      .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "60", :role => "progressbar", :style => "width: 60%"}
+                    %h4.small.font-weight-bold
+                      Payout Details
+                      %span.float-right 80%
+                    .progress.mb-4
+                      .progress-bar.bg-info{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "80", :role => "progressbar", :style => "width: 80%"}
+                    %h4.small.font-weight-bold
+                      Account Setup
+                      %span.float-right Complete!
+                    .progress
+                      .progress-bar.bg-success{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "100", :role => "progressbar", :style => "width: 100%"}
+                / Color System
+                .row
+                  .col-lg-6.mb-4
+                    .card.bg-primary.text-white.shadow
+                      .card-body
+                        Primary
+                        .text-white-50.small #4e73df
+                  .col-lg-6.mb-4
+                    .card.bg-success.text-white.shadow
+                      .card-body
+                        Success
+                        .text-white-50.small #1cc88a
+                  .col-lg-6.mb-4
+                    .card.bg-info.text-white.shadow
+                      .card-body
+                        Info
+                        .text-white-50.small #36b9cc
+                  .col-lg-6.mb-4
+                    .card.bg-warning.text-white.shadow
+                      .card-body
+                        Warning
+                        .text-white-50.small #f6c23e
+                  .col-lg-6.mb-4
+                    .card.bg-danger.text-white.shadow
+                      .card-body
+                        Danger
+                        .text-white-50.small #e74a3b
+                  .col-lg-6.mb-4
+                    .card.bg-secondary.text-white.shadow
+                      .card-body
+                        Secondary
+                        .text-white-50.small #858796
+                  .col-lg-6.mb-4
+                    .card.bg-light.text-black.shadow
+                      .card-body
+                        Light
+                        .text-black-50.small #f8f9fc
+                  .col-lg-6.mb-4
+                    .card.bg-dark.text-white.shadow
+                      .card-body
+                        Dark
+                        .text-white-50.small #5a5c69
+              .col-lg-6.mb-4
+                / Illustrations
+                .card.shadow.mb-4
+                  .card-header.py-3
+                    %h6.m-0.font-weight-bold.text-primary Illustrations
+                  .card-body
+                    .text-center
+                      %img.img-fluid.px-3.px-sm-4.mt-3.mb-4{:alt => "", :src => "https://static.wixstatic.com/media/02c63b_2268eeef66714d5b961e31fbd6c8202e~mv2.png/v1/fill/w_460,h_550,al_c,q_85,usm_0.66_1.00_0.01/Why-Venturit-01.webp", :style => "width: 25rem;"}/
+                    %p
+                      Add some quality, svg illustrations to your project courtesy of
+                      = succeed "," do
+                        %a{:href => "https://undraw.co/", :rel => "nofollow", :target => "_blank"} unDraw
+                    %a{:href => "https://undraw.co/", :rel => "nofollow", :target => "_blank"} Browse Illustrations on unDraw →
+                / Approach
+                .card.shadow.mb-4
+                  .card-header.py-3
+                    %h6.m-0.font-weight-bold.text-primary Development Approach
+                  .card-body
+                    %p SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.
+                    %p.mb-0 Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.
+          / /.container-fluid
+        / End of Main Content
+        / Footer
+        %footer.sticky-footer.bg-white
+          .container.my-auto
+            .copyright.text-center.my-auto
+              %span Copyright © Venturit #{Date.today.year}
+        / End of Footer
+      / End of Content Wrapper
+    / End of Page Wrapper
+    / Scroll to Top Button
+    %a.scroll-to-top.rounded{:href => "#page-top"}
+      %i.fas.fa-angle-up
+    / Logout Modal
+    #logoutModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog{:role => "document"}
+        .modal-content
+          .modal-header
+            %h5#exampleModalLabel.modal-title Ready to Leave?
+            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+          .modal-body Select "Logout" below if you are ready to end your current session.
+          .modal-footer
+            %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Cancel
+            %a.btn.btn-primary{:href => "login.html"} Log out
+

@@ -3,7 +3,7 @@ STRIVE is our gamified preformance review system to help our team members strive
 STRIVE replaces our current 360-degree performance review system by integrating essential elemements of the 360-degree system and gamifing it to deliver feedback by a biweekly basis so that teammates can Strive faster.
 We decided to make it an open source under a MIT License, 
 so that you can use STRIVE to implement a better preformance review system for your team.
-STRIVE uses a badging system to reconize and reward team members.The badges are given every two weeks,
+STRIVE uses a badging system to reconize and reward team members. The badges are given every two weeks,
 they are rewarded under four categories Solver, Reliable, Venturian and Expert.
 
 **Solver** adheres to analitical skills

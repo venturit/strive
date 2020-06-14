@@ -178,7 +178,7 @@ def create_visitor
   end
   
   Then /^I should be signed out$/ do
-    page.should have_content "Sign up"
+    page.should have_content "Forgot your password?"
   end
   
   Then /^I see an unconfirmed account message$/ do

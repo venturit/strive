@@ -13,35 +13,42 @@
           = image_tag @user.avatar, width:"200px"
         %br/
         = f.label :avatar
-        = f.file_field :avatar
+        = f.file_field :avatar, class: "btn btn-primary"
       .field
+        %br/
         = f.label :name
         %br/
-        = f.text_field :name, autofocus: true, autocomplete: "name"
+        = f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control form-control-user"
       .field
+        %br/
         = f.label :email
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email"
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-user"
       .field
+        %br/
         = f.label :Admin
         %br/
         = f.check_box :admin
 
       .field
+        %br/
         = f.label :Active
         %br/
         = f.check_box :active
       .field
+        %br/
         = f.label :password
         - if @minimum_password_length
           %em
             (#{@minimum_password_length} characters minimum)
         %br/
-        = f.password_field :password, autocomplete: "new-password"
+        = f.password_field :password, autocomplete: "new-password", class: "form-control form-control-user"
       .field
+        %br/
         = f.label :password_confirmation
         %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password"
-
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-user"
+        
       .actions
-        = f.submit 'Create'
+        %br/
+        = f.submit 'Create', class:"btn btn-primary btn-user btn-block"

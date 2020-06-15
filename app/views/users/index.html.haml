@@ -1,4 +1,5 @@
 .row.justify-content-center
+
   .col-xl-10.col-lg-12.col-md-9
     .card.o-hidden.border-0.shadow-lg.my-5
       .card-body.p-0
@@ -7,25 +8,22 @@
             .p-5
               .text-center
                 %h1.h4.text-gray-900.mb-4 All users
-                %table
-                  %thead
-                    %tr
-                      %th
-                      %th
-                      %th
+        .row
+          - @users.each do |user|
+            / user card
+            .col-xl-3.col-md-6.mb-4
+              .card.border-left-primary.shadow.h-100.py-2
+                .card-body
+                  .row.no-gutters.align-items-center
+                    .col.mr-2
+                      .text-s.font-weight-bold.text-primary.text-uppercase.mb-1 #{user.name}
+                      -if user.avatar.attached?
+                        = image_tag user.avatar, width: "100px"
+                      -if current_user.admin? 
+                        = link_to 'Edit', edit_user_path(user)
+                    .col-auto
+            / end user card
+          %br
+            = link_to 'New User', new_user_path
 
-                  %tbody
-                    - @users.each do |user|
-                      %tr
 
-                        %td 
-                          -if user.avatar.attached?
-                            = image_tag user.avatar, width: "100px"
-                          %br/
-                          =link_to user.name, user
-                        -if current_user.admin? 
-                          %td= link_to 'Edit', edit_user_path(user)
-
-                %br
-
-                = link_to 'New User', new_user_path

@@ -23,7 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem "mini_magick"
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -53,6 +54,7 @@ group :test do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'factory_bot_rails'
+  gem 'mailslurp_client'
 end
 
 
@@ -69,3 +71,7 @@ gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
 
 gem 'mini_racer'
+
+gem 'dotenv'
+
+gem 'cancancan'

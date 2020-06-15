@@ -1,0 +1,47 @@
+.row
+  .col-lg-12
+    = form_for @user, html: {class: 'user'} do |f|
+      .form-group.row
+      - if @user.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+          %ul
+            - @user.errors.full_messages.each do |message|
+              %li= message
+      .field
+        -if @user.avatar.attached?
+          = image_tag @user.avatar, width:"200px"
+        %br/
+        = f.label :avatar
+        = f.file_field :avatar
+      .field
+        = f.label :name
+        %br/
+        = f.text_field :name, autofocus: true, autocomplete: "name"
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .field
+        = f.label :Admin
+        %br/
+        = f.check_box :admin
+
+      .field
+        = f.label :Active
+        %br/
+        = f.check_box :active
+      .field
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "new-password"
+      .field
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+
+      .actions
+        = f.submit 'Create'

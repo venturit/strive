@@ -1,6 +1,5 @@
-= render "devise/shared/error_messages"
-
 = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "user"}) do |f|
+  = render "devise/shared/error_messages", resource: resource
   .form-group
     = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-user", placeholder: "Enter Email Address..."
   .form-group

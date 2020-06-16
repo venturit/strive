@@ -60,7 +60,6 @@
   });
   $("#user_avatar").on("change", function() {
     var fileName = $(this).val().split("\\").pop();
-    alert(fileName);
     $(".custom-file-label").addClass("selected").html(fileName);
   });
 

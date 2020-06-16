@@ -197,8 +197,8 @@
               / Nav Item - User Information
               %li.nav-item.dropdown.no-arrow
                 %a#userDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                  %span.mr-2.d-none.d-lg-inline.text-gray-600.small Valerie Luna
-                  %img.img-profile.rounded-circle{:src => "https://source.unsplash.com/QAB-WJcbgJk/60x60"}/
+                  %span.mr-2.d-none.d-lg-inline.text-gray-600.small #{current_user.name}
+                  = image_tag current_user.avatar, width: "60px", class: "img-profile rounded-circle"
                 / Dropdown - User Information
                 .dropdown-menu.dropdown-menu-right.shadow.animated--grow-in{"aria-labelledby" => "userDropdown"}
                   %a.dropdown-item{:href => "#"}

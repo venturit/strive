@@ -13,7 +13,9 @@
           = image_tag @user.avatar, width:"200px"
         %br/
         = f.label :avatar
-        = f.file_field :avatar, class: "btn btn-primary"
+        = f.file_field :avatar, class:"d-none"
+        .custom-file
+          %label.custom-file-label{:for => "customFile"} Choose file
       .field
         %br/
         = f.label :name
@@ -52,3 +54,13 @@
       .actions
         %br/
         = f.submit 'Create', class:"btn btn-primary btn-user btn-block"
+:javascript
+  $(".custom-file-label").click(function () {
+    $("#user_avatar").trigger('click');
+  });
+  $("#user_avatar").on("change", function() {
+    var fileName = $(this).val().split("\\").pop();
+    alert(fileName);
+    $(".custom-file-label").addClass("selected").html(fileName);
+  });
+

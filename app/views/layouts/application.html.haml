@@ -23,43 +23,17 @@
         / Sidebar - Brand
         %a.sidebar-brand.d-flex.align-items-center.justify-content-center{:href => "/"}
           .sidebar-brand-icon.rotate-n-15
-            %i.fas.fa-grin-hearts
+            <i class="fas fa-grin-stars"></i>
           .sidebar-brand-text.mx-3
             STRIVE
         / Divider
         %hr.sidebar-divider.my-0/
-        / Nav Item - Dashboard
+        / Nav Item - Leaderboard
         %li.nav-item.active
           %a.nav-link{:href => "/"}
-            %i.fas.fa-fw.fa-tachometer-alt
-            %span Dashboard
+            <i class="fas fa-rocket"></i>
+            %span Leaderboard
         / Divider
-        %hr.sidebar-divider/
-        / Heading
-        .sidebar-heading
-          Interface
-        / Nav Item - Pages Collapse Menu
-        %li.nav-item
-          %a.nav-link.collapsed{"aria-controls" => "collapseTwo", "aria-expanded" => "true", "data-target" => "#collapseTwo", "data-toggle" => "collapse", :href => "#"}
-            %i.fas.fa-fw.fa-cog
-            %span Components
-          #collapseTwo.collapse{"aria-labelledby" => "headingTwo", "data-parent" => "#accordionSidebar"}
-            .bg-white.py-2.collapse-inner.rounded
-              %h6.collapse-header Custom Components:
-              %a.collapse-item{:href => "buttons.html"} Buttons
-              %a.collapse-item{:href => "cards.html"} Cards
-        / Nav Item - Utilities Collapse Menu
-        %li.nav-item
-          %a.nav-link.collapsed{"aria-controls" => "collapseUtilities", "aria-expanded" => "true", "data-target" => "#collapseUtilities", "data-toggle" => "collapse", :href => "#"}
-            %i.fas.fa-fw.fa-wrench
-            %span Utilities
-          #collapseUtilities.collapse{"aria-labelledby" => "headingUtilities", "data-parent" => "#accordionSidebar"}
-            .bg-white.py-2.collapse-inner.rounded
-              %h6.collapse-header Custom Utilities:
-              %a.collapse-item{:href => "utilities-color.html"} Colors
-              %a.collapse-item{:href => "utilities-border.html"} Borders
-              %a.collapse-item{:href => "utilities-animation.html"} Animations
-              %a.collapse-item{:href => "utilities-other.html"} Other
         - if current_user.admin?
           / Divider
           %hr.sidebar-divider/
@@ -86,8 +60,6 @@
             %a.nav-link{:href => "tables.html"}
               %i.fas.fa-fw.fa-table
               %span Audit Log
-        / Divider
-        %hr.sidebar-divider.d-none.d-md-block/
         / Sidebar Toggler (Sidebar)
         .text-center.d-none.d-md-inline
           %button#sidebarToggle.rounded-circle.border-0

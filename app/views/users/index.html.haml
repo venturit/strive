@@ -1,29 +1,23 @@
-.row.justify-content-center
+.row
+  .col-md-6
+    %h1.h3.mb-0.text-gray-800 Users
+  -if current_user.admin? 
+    .col-md-6.text-right.mb-4
+      = link_to 'New User', new_user_path, class:"btn btn-secondary"
+.row
+  .card-deck
+    - @users.each do |user|
+      .col-xl-3.col-md-6.mb-4
+        .card{:style => "width: 18rem;"}
+          -if user.avatar.present?
+            =image_tag user.avatar, class: "card-img-top", width:"100"
+          .card-body
+            %h5.card-title #{user.name}
+            %p.card-text This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+          .card-footer.text-right
+            -if current_user.admin? 
+              = link_to 'Edit', edit_user_path(user), class:"btn btn-primary"
 
-  .col-xl-10.col-lg-12.col-md-9
-    .card.o-hidden.border-0.shadow-lg.my-5
-      .card-body.p-0
-        .row
-          .col-lg-12
-            .p-5
-              .text-center
-                %h1.h4.text-gray-900.mb-4 All users
-        .row
-          - @users.each do |user|
-            / user card
-            .col-xl-3.col-md-6.mb-4
-              .card.border-left-primary.shadow.h-100.py-2
-                .card-body
-                  .row.no-gutters.align-items-center
-                    .col.mr-2
-                      .text-s.font-weight-bold.text-primary.text-uppercase.mb-1 #{user.name}
-                      -if user.avatar.attached?
-                        = image_tag user.avatar, width: "100px"
-                      -if current_user.admin? 
-                        = link_to 'Edit', edit_user_path(user)
-                    .col-auto
-            / end user card
-          %br
-            = link_to 'New User', new_user_path
+      
 
 

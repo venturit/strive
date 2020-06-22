@@ -15,7 +15,16 @@ Feature: Invite User
     Scenario: Unauathorized tries to Invite User
       Given I am a user
       Given I signed in with valid credentials
-      Given I try to visit new user page
+      Given I try to visit admin new user page
       Then I should get an unauthorized error
-      When I try to create a new user by entering user information
-      Then I should get a field not found error
+
+
+
+# Feature: Manage Badges
+#   As an admin 
+#   I want to manage strives 
+
+#     Scenario: Add a badge to the system
+#       Given I visit create new badge page
+#       When I create a new badge by entering information
+#       Then the badge should get created

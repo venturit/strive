@@ -1,0 +1,16 @@
+.row.justify-content-center
+  .col-xl-10.col-lg-12.col-md-9
+    .card.o-hidden.border-0.shadow-lg.my-5
+      .card-body.p-100
+        .row
+          .col-lg-12
+            .p-5
+              .text-center
+                %h1.h4.text-gray-900.mb-4 #{@user.name}
+
+            %p#notice= notice
+            = image_tag @user.avatar, width: "200px"
+            %br/
+            = link_to 'Back', admin_user_path
+            |
+            = link_to 'Edit', edit_admin_user_path(@user)

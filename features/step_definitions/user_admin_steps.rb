@@ -21,12 +21,12 @@ Given("I signed in with valid credentials") do
 end
 
 Given("I visit new user page") do
-    visit "/users/new"
+    visit "admin/users/new"
 end
 
-Given("I try to visit new user page") do
+Given("I try to visit admin new user page") do
     begin
-        visit "/users/new"
+        visit "admin/users/new"
     rescue => @unauthorized_error
     
     end
@@ -63,9 +63,6 @@ end
 
 Then("I should get an unauthorized error") do
     @unauthorized_error.class.to_s.should == "CanCan::AccessDenied"
-end
-Then("I should get a field not found error") do
-    @field_error.class.to_s.should == "Capybara::ElementNotFound"
 end
 
 ##

@@ -1,6 +1,6 @@
 .row
   .col-lg-12
-    = form_for @user, html: {class: 'user'} do |f|
+    = form_for [:admin, @user], html: {class: 'user'} do |f|
       .form-group.row
       - if @user.errors.any?
         #error_explanation

@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   # Home
   root 'home#index'
   
+  get 'users/search', to: 'users#search'
+  
   resources :users
+
+  
 
 end

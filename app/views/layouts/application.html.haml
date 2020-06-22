@@ -102,11 +102,11 @@
             %button#sidebarToggleTop.btn.btn-link.d-md-none.rounded-circle.mr-3
               %i.fa.fa-bars
             / Topbar Search
-            %form.d-none.d-sm-inline-block.form-inline.mr-auto.ml-md-3.my-2.my-md-0.mw-100.navbar-search
+            %form.d-none.d-sm-inline-block.form-inline.mr-auto.ml-md-3.my-2.my-md-0.mw-00.navbar-search
               .input-group
-                %input.form-control.bg-light.border-0.small{"aria-describedby" => "basic-addon2", "aria-label" => "Search", :placeholder => "Search for...", :type => "text"}/
+                %input.form-control.bg-light.border-0.small{ "name"=> "auto_search", "data-behavior"=>"autocomplete", "aria-describedby" => "basic-addon2", "aria-label" => "Search", :placeholder => "Search for teammates..",  :type => "text"}/
                 .input-group-append
-                  %button.btn.btn-primary{:type => "button"}
+                  %button.btn.disabled.btn-primary{:type => "button"}
                     %i.fas.fa-search.fa-sm
             / Topbar Navbar
             %ul.navbar-nav.ml-auto

@@ -1,3 +1,4 @@
+include ActionDispatch::TestProcess
 FactoryBot.define do
     factory :user do
       name {'Test User'}
@@ -6,7 +7,7 @@ FactoryBot.define do
       password_confirmation { "changeme" }
       admin { false }
       active { true }
-      # required if the Devise Confirmable module is used
       confirmed_at {Time.now}
+      avatar {fixture_file_upload(Rails.root.join('test', 'fixtures', 'files', 'user.png'), 'image/png') }
     end
 end

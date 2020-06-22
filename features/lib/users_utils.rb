@@ -1,8 +1,8 @@
 # https://github.com/RailsApps/rails3-devise-rspec-cucumber
 ### UTILITY METHODS ###
 
-def create_visitor
-    @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
+def create_visitor(name= "John Prueba",email = "jp@example.com")
+    @visitor ||= { :name => name, :email => email,
     :password => "changeme", :password_confirmation => "changeme" }
 end
 
@@ -22,10 +22,16 @@ def create_unconfirmed_user
     visit '/users/sign_out'
 end
 
-def create_user
-    create_visitor
+def create_user(name="John Prueba",email = "jp@example.com")
+    create_visitor(name,email)
     delete_user
     @user = FactoryBot.create(:user, @visitor)
+end
+
+def create_user2(name="John Prueba",email = "jp@example.com")
+    @visitor2 = create_visitor(name,email)
+    delete_user2
+    @user2 = FactoryBot.create(:user, @visitor)
 end
 
 def create_admin
@@ -38,6 +44,11 @@ end
 def delete_user
     @user ||= User.where(:email => @visitor[:email]).first
     @user.destroy unless @user.nil?
+end
+
+def delete_user2
+    @user2 ||= User.where(:email => @visitor2[:email]).first
+    @user2.destroy unless @user.nil?
 end
 
 def delete_admin

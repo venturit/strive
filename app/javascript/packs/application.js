@@ -22,3 +22,7 @@ require("jquery")
 //= require bootstrap
 
 import 'bootstrap'
+import "easy-autocomplete"
+import "packs/sb-admin-2"
+import "packs/users"
+

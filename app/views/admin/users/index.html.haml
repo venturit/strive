@@ -1,19 +1,18 @@
 .row
   .col-md-6
-    %h1.h3.mb-0.text-gray-800 Users
+    %h1.h3.mb-0.text-gray-800 All Users
   -if current_user.admin? 
     .col-md-6.text-right.mb-4
-      = link_to 'New User', new_admin_user_path, class:"btn btn-secondary"
+      = link_to 'New User', new_admin_user_path, class:"btn btn-primary"
 .row
   .card-deck
     - @users.each do |user|
       .col-xl-3.col-md-6.mb-4
-        .card{:style => "width: 18rem;"}
+        .card{:style => "width: 16rem;"}
           -if user.avatar.present?
             =image_tag user.avatar, class: "card-img-top", width:"100"
           .card-body
             %h5.card-title #{user.name}
-            %p.card-text This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
           .card-footer.text-right
             -if current_user.admin? 
               = link_to 'Edit', edit_admin_user_path(user), class:"btn btn-primary"

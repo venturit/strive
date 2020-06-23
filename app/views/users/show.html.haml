@@ -11,6 +11,6 @@
             %p#notice= notice
             = image_tag @user.avatar, width: "200px"
             %br/
-            = link_to 'Back', users_path
+            = link_to 'Back', root_path
             |
-            = link_to 'Edit', edit_user_path(@user)
+            = link_to 'Edit', edit_admin_user_path(@user)

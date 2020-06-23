@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :search]
+  before_action :set_user, only: [:show]
   before_action :force_json, only: :search
 
   # GET /users

@@ -10,7 +10,7 @@
             =image_tag user.avatar, class: "card-img-top", width:"100"
           .card-body
             %h5.card-title 
-              = link_to user.name, user_path(user)
+              = link_to user.name, admin_user_path(user)
           .card-footer.text-right
             -if current_user.admin? 
               = link_to 'Edit', edit_admin_user_path(user), class:"btn btn-primary"

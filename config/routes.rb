@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'home#index'
-  
-  get 'users/:id', to: 'users#show', as: 'user'
   get 'users/search', to: 'users#search'
 
   resources :requests

@@ -3,12 +3,12 @@
     %h1.h3.mb-0.text-gray-800 Badges
   -if current_user.admin? 
     .col-md-6.text-right.mb-4
-      = link_to 'New Badge', new_admin_badge_path, class:"btn btn-secondary"
+      = link_to 'New Badge', new_admin_badge_path, class:"btn btn-primary"
 .row
   .card-deck
     - @badges.each do |badge|
       .col-xl-3.col-md-6.mb-4
-        .card{:style => "width: 18rem;"}
+        .card{:style => "width: 16rem;"}
           -if badge.emblem.present?
             =image_tag badge.emblem, class: "card-img-top", width:"100"
           .card-body

@@ -1,0 +1,24 @@
+.row
+  .col-md-6
+    %h1.h3.mb-0.text-gray-800 Badges
+  -if current_user.admin? 
+    .col-md-6.text-right.mb-4
+      = link_to 'New Badge', new_admin_badge_path, class:"btn btn-secondary"
+.row
+  .card-deck
+    - @badges.each do |badge|
+      .col-xl-3.col-md-6.mb-4
+        .card{:style => "width: 18rem;"}
+          -if badge.emblem.present?
+            =image_tag badge.emblem, class: "card-img-top", width:"100"
+          .card-body
+            %h5.card-title #{badge.name}
+            %p.card-text  Worth #{number_to_currency(badge.reward, unit: "$")}
+            %p.card-text  #{badge.notes}
+          .card-footer.text-right
+            -if current_user.admin? 
+              = link_to 'Edit', edit_admin_badge_path(badge), class:"btn btn-primary"
+
+      
+
+

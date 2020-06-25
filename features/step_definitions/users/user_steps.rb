@@ -1,4 +1,4 @@
-require_relative '../lib/users_utils'
+require_relative '../../lib/users_utils'
   
   ### GIVEN ###
   Given /^I am not logged in$/ do

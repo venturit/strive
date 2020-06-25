@@ -1,4 +1,4 @@
-require_relative '../lib/users_utils'
+require_relative '../../lib/users_utils'
 
 # admin
 Given /^I am an admin$/ do
@@ -11,12 +11,10 @@ end
 
 
 Given("I signed in with valid admin credentials") do
-    create_admin_visitor
     admin_sign_in
 end
 
 Given("I signed in with valid credentials") do
-    create_visitor
     sign_in
 end
 

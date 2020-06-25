@@ -85,6 +85,7 @@ end
 def rand_email
     "john#{rand(19)}@example.com"
 end
+
 ##
 # the following helper methods help to do end to end email testing with MailSlurp. 
 # Note: MailSlurp has limited API calls for free

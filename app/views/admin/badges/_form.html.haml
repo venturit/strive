@@ -1,0 +1,46 @@
+.row
+  .col-lg-12
+    = form_for [:admin, @badge], html: {class: 'user'} do |f|
+      .form-group.row
+      - if @badge.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@user.errors.count, "error")} prohibited this badge from being saved:"
+          %ul
+            - @user.errors.full_messages.each do |message|
+              %li= message
+      .field
+        -if @badge.emblem.attached?
+          = image_tag @badge.emblem, width:"200px"
+        %br/
+        = f.label :emblem
+        = f.file_field :emblem, class:"d-none"
+        .custom-file
+          %label.custom-file-label{:for => "customFile"} Choose file
+      .field
+        %br/
+        = f.label :name
+        %br/
+        = f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control form-control-user"
+      .field
+        %br/
+        = f.label :reward
+        %br/
+        = f.text_field :reward, autofocus: true, autocomplete: "reward", class: "form-control form-control-user"
+      .field
+        %br/
+        = f.label :notes
+        %br/
+        = f.text_area :notes, autocomplete: "notes", class: "form-control form-control-user"
+        
+      .actions
+        %br/
+        = f.submit 'Save', class:"btn btn-primary btn-user btn-block"
+:javascript
+  $(".custom-file-label").click(function () {
+    $("#badge_emblem").trigger('click');
+  });
+  $("#badge_emblem").on("change", function() {
+    var fileName = $(this).val().split("\\").pop();
+    $(".custom-file-label").addClass("selected").html(fileName);
+  });
+

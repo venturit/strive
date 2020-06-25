@@ -1,26 +1,17 @@
-%h1 Listing strive_categories
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Description
-      %th Updated by
-      %th Created by
-      %th
-      %th
-      %th
-
-  %tbody
+.row
+  .col-md-6
+    %h1.h3.mb-0.text-gray-800 Strive Categories
+  -if current_user.admin? 
+    .col-md-6.text-right.mb-4
+      = link_to 'New Strive Category', new_admin_strive_category_path, class:"btn btn-primary"
+.row
+  .card-deck
     - @strive_categories.each do |strive_category|
-      %tr
-        %td= strive_category.name
-        %td= strive_category.description
-        %td= strive_category.updated_by
-        %td= strive_category.created_by
-        %td= link_to 'Edit', edit_admin_strive_category_path(strive_category)
-        %td= link_to 'Destroy', admin_strive_categories_path, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Strive category', new_admin_strive_category_path
+      .col-md-6.mb-8.p-20
+        .card{:style => "width: 16rem;"}
+          .card-body
+            %h5.card-title #{strive_category.name}
+            %p.card-text  #{strive_category.description}
+          .card-footer.text-right
+            -if current_user.admin? 
+              = link_to 'Edit', edit_admin_strive_category_path(strive_category), class:"btn btn-primary"

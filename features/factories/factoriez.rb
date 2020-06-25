@@ -20,3 +20,12 @@ FactoryBot.define do
         emblem {fixture_file_upload(Rails.root.join('features', 'fixtures', 'files', 'bronze.png'), 'image/png') }
       end
   end
+
+
+
+FactoryBot.define do
+  factory :strive_category do
+    name {'Venturian'}
+    description {'Adheres to Venturit culture, Being Honest, Encouraging, Transparent, Fun, Respect for others, etc'}
+  end
+end

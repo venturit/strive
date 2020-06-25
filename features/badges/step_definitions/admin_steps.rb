@@ -1,5 +1,5 @@
-require_relative '../../lib/users_utils'
-require_relative '../../lib/badges_utils'
+require_relative "#{Rails.root.join('features', 'lib')}/users_utils"
+require_relative "#{Rails.root.join('features', 'lib')}/badges_utils"
 
 Given("I signed in and visit create new badge page") do
     create_admin
@@ -19,7 +19,7 @@ Given("I signed in and visit create new badge page") do
   end
 
 
-  Given("I signed in and visit edit new badge page") do
+  Given("I signed in and visit edit badge page") do
     create_badge
     create_admin
     admin_sign_in

@@ -1,0 +1,2 @@
+class StriveCategory < ApplicationRecord
+end

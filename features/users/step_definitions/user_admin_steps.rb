@@ -1,4 +1,4 @@
-require_relative '../../lib/users_utils'
+require_relative "#{Rails.root.join('features', 'lib')}/users_utils"
 
 # admin
 Given /^I am an admin$/ do
@@ -36,7 +36,7 @@ When("I create a new user by entering user information") do
     fill_in "user_email", :with => @email_address
     fill_in "user_password", :with => "jOhnrockZ"
     fill_in "user_password_confirmation", :with => "jOhnrockZ"
-    click_button "Create"
+    click_button "Save"
 end
 
 When("I try to create a new user by entering user information") do    
@@ -46,7 +46,7 @@ When("I try to create a new user by entering user information") do
         fill_in "user_email", :with => @email_address
         fill_in "user_password", :with => "jOhnrockZ"
         fill_in "user_password_confirmation", :with => "jOhnrockZ"
-        click_button "Create"
+        click_button "Save"
     rescue => @field_error
     end
 end
@@ -72,7 +72,7 @@ end
 #     fill_in "user_email", :with => @email_address
 #     fill_in "user_password", :with => "jOhnrockZ"
 #     fill_in "user_password_confirmation", :with => "jOhnrockZ"
-#     click_button "Create"
+#     click_button "Save"
 # end
 # Then("the user should get an invite email") do
 #     # email_wait_helper

@@ -1,0 +1,26 @@
+%h1 Listing strive_categories
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Updated by
+      %th Created by
+      %th
+      %th
+      %th
+
+  %tbody
+    - @strive_categories.each do |strive_category|
+      %tr
+        %td= strive_category.name
+        %td= strive_category.description
+        %td= strive_category.updated_by
+        %td= strive_category.created_by
+        %td= link_to 'Edit', edit_admin_strive_category_path(strive_category)
+        %td= link_to 'Destroy', admin_strive_categories_path, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Strive category', new_admin_strive_category_path

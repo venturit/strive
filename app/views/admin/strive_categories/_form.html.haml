@@ -1,0 +1,16 @@
+= form_for [:admin,@strive_category] do |f|
+  - if @strive_category.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@strive_category.errors.count, "error")} prohibited this strive_category from being saved:"
+      %ul
+        - @strive_category.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions
+    = f.submit 'Save'

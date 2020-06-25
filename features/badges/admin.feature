@@ -10,6 +10,6 @@ Feature: As Admin I can Manage Badges
 
 
     Scenario: Update a badge in the system
-      Given I signed in and visit edit new badge page
+      Given I signed in and visit edit badge page
       When I update the badge name and save it
       Then the badge name should get updated

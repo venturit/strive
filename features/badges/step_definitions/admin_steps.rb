@@ -34,3 +34,16 @@ Given("I signed in and visit create new badge page") do
   Then("the badge name should get updated") do
     page.should have_content "Silvery"
   end
+
+
+  When("I try to create a new badge by entering information of an existing badge in the system") do
+    create_badge
+    fill_in "badge_name", :with => "Bronze"
+    fill_in "badge_reward", :with => 5.00
+    fill_in "badge_notes", :with => "$5 worth of rewards"
+    click_button "Save"
+  end
+  
+  Then("the system should prevent me from creating a duplicate badge") do
+    page.should have_content "Name has already been taken Reward has already been taken"
+  end

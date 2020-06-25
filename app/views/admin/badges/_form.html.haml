@@ -4,9 +4,9 @@
       .form-group.row
       - if @badge.errors.any?
         #error_explanation
-          %h2= "#{pluralize(@user.errors.count, "error")} prohibited this badge from being saved:"
+          %h2= "#{pluralize(@badge.errors.count, "error")} prohibited this badge from being saved:"
           %ul
-            - @user.errors.full_messages.each do |message|
+            - @badge.errors.full_messages.each do |message|
               %li= message
       .field
         -if @badge.emblem.attached?

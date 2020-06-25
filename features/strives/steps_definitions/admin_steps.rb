@@ -33,3 +33,16 @@ Given("I signed in and visit create new strive category page") do
   Then("the strive category description should get updated") do
     page.should have_content "Equality"
   end
+
+
+
+  When("I try to create a new strive category by entering information of an existing strive category in the system") do
+    create_strive_category
+    fill_in "strive_category_name", :with => "Venturian"
+    fill_in "strive_category_description", :with => "Adheres to Venturit culture"
+    click_button "Save"
+  end
+  
+  Then("the system should prevent me from creating a duplicate strive category") do
+    page.should have_content "error prohibited this strive_category from being saved"
+  end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_132542) do
+ActiveRecord::Schema.define(version: 2020_06_24_045850) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,45 @@ ActiveRecord::Schema.define(version: 2020_06_13_132542) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "notes", null: false
+    t.decimal "reward", precision: 8, scale: 2, null: false
+    t.integer "created_by"
+    t.integer "updated_by"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_badges_on_name", unique: true
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer "requestor_id", null: false
+    t.integer "recipient_id", null: false
+    t.integer "badge_id", null: false
+    t.text "reason", null: false
+    t.integer "strive_category_id", null: false
+    t.integer "backer_id", null: false
+    t.integer "requestee_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["backer_id"], name: "index_requests_on_backer_id"
+    t.index ["badge_id"], name: "index_requests_on_badge_id"
+    t.index ["recipient_id"], name: "index_requests_on_recipient_id"
+    t.index ["requestee_id"], name: "index_requests_on_requestee_id"
+    t.index ["requestor_id"], name: "index_requests_on_requestor_id"
+    t.index ["strive_category_id"], name: "index_requests_on_strive_category_id"
+  end
+
+  create_table "strive_categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "updated_by"
+    t.integer "created_by"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_strive_categories_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

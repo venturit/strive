@@ -37,19 +37,28 @@
         = f.label :Active
         %br/
         = f.check_box :active
+
       .field
         %br/
-        = f.label :password
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} characters minimum)
+        = f.label :Role
         %br/
-        = f.password_field :password, autocomplete: "new-password", class: "form-control form-control-user"
-      .field
-        %br/
-        = f.label :password_confirmation
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-user"
+        = f.select :role, options_for_select(User::ROLES.map { |s| [s[1].to_s.humanize, s[0]] } )
+
+
+      -if params[:action] == "new"
+        .field
+          %br/
+          = f.label :password
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "new-password", class: "form-control form-control-user"
+        .field
+          %br/
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-user"
         
       .actions
         %br/

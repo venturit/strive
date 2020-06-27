@@ -1,0 +1,35 @@
+%h1 Listing requests
+
+%table
+  %thead
+    %tr
+      %th Requestor
+      %th Recipient
+      %th Badge
+      %th Reason
+      %th Strive category
+      %th Backer
+      %th
+      %th
+      %th
+
+  %tbody
+    - @requests.each do |request|
+      %tr
+        %td= request.requestor_id
+        %td= request.recipient_id
+        %td= request.badge_id
+        %td= request.reason
+        %td= request.strive_category_id
+        %td= request.backer_id
+        %td= link_to 'Show', request
+        %td
+          -if can? :edit, @request
+            = link_to 'Edit', edit_request_path(request)
+        %td
+          -if can? :destroy, @request
+            = link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Request', new_request_path

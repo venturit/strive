@@ -1,0 +1,32 @@
+%p#notice= notice
+
+%p
+  %b Requestor:
+  -if @request.requestor.avatar.present?
+    = image_tag @request.requestor.avatar, alt: '', height: '', width: '60px', class: ''
+  = @request.requestor.name
+%p
+  %b Recipient:
+  -if @request.recipient.avatar.present?
+    = image_tag @request.recipient.avatar, alt: '', height: '', width: '60px', class: ''
+  = @request.recipient.name
+%p
+  %b Badge:
+  -if @request.badge.emblem.present?
+    = image_tag @request.badge.emblem, alt: '', height: '', width: '60px', class: ''
+  = @request.badge.name
+%p
+  %b Reason:
+  = @request.reason
+%p
+  %b Strive category:
+  = @request.strive_category.name
+%p
+  %b Backer:
+  -if @request.backer.avatar.present?
+    = image_tag @request.backer.avatar, alt: '', height: '', width: '60px', class: ''
+  = @request.backer.name
+-if can? :edit, @request
+  = link_to 'Edit', edit_request_path(@request)
+\|
+= link_to 'Back', requests_path

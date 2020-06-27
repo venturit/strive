@@ -1,0 +1,35 @@
+= form_for @request do |f|
+  - if @request.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@request.errors.count, "error")} prohibited this request from being saved:"
+      %ul
+        - @request.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :badge_id
+    = f.collection_select :badge_id, @badges, :id, :name
+
+  .field
+    = f.label :strive_category_id
+    = f.collection_select :strive_category_id, @strive_categories, :id, :name
+
+
+  .field
+    = f.label :requestee_id
+    = f.collection_select :requestee_id, @requestees, :id, :name
+
+  .field
+    = f.label :recipient_id
+    = f.collection_select :recipient_id, @recipients, :id, :name
+  
+  .field
+    = f.label :backer_id
+    = f.collection_select :backer_id, @backers, :id, :name
+
+  .field
+    = f.label :reason
+    = f.text_area :reason
+
+  .actions
+    = f.submit 'Save'

@@ -58,12 +58,14 @@ class Admin::UsersController < Admin::BaseController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      User.unscoped {
+        @user = User.find(params[:id])
+      }
     end
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :active, :avatar)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :active, :avatar, :role)
     end
 
 end

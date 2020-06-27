@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
+    @users = User.where(active: true).all
   end
 
   # GET /users/1
@@ -14,14 +14,13 @@ class UsersController < ApplicationController
 # GET /users/search
   def search
     q = params[:q].downcase
-    @users = User.where("lower(name) LIKE ?", "%#{q}%").limit(5)
+    @users = User.where("lower(name) LIKE ?", "%#{q}%").where(active: true).limit(5)
   end
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.where(active: true, id: params[:id]).first
     end
     
     def force_json

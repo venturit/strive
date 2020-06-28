@@ -15,6 +15,7 @@
     = stylesheet_link_tag 'sb-admin-2', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'sb-admin-2', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tag
   %body#page-top
     / Page Wrapper
     #wrapper
@@ -192,6 +193,17 @@
           / End of Topbar
           / Begin Page Content
           .container-fluid
+            -unless flash.blank?
+              -if flash[:notice].present?
+                .alert.alert-success{role:"alert"}
+                  = flash[:notice] 
+                  %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+                    %span{"aria-hidden" => "true"} ×
+              -if flash[:alert].present?
+                .alert.alert-warning{role:"alert"}
+                  = flash[:alert] 
+                  %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+                    %span{"aria-hidden" => "true"} ×
             = yield
           / /.container-fluid
         / End of Main Content

@@ -12,7 +12,6 @@ class Admin::UsersController < Admin::BaseController
 
   # GET admin/users/new
   def new
-    authorize! :create, @user
     @user = User.new
   end
 
@@ -23,7 +22,6 @@ class Admin::UsersController < Admin::BaseController
   # POST admin/users
   def create
     @user = User.new(user_params)
-    authorize! :create, @user
     respond_to do |format|
       if @user.save
         format.html { redirect_to admin_users_path, notice: 'User was successfully created.' }

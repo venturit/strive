@@ -24,11 +24,11 @@
         %td= request.backer_id
         %td= link_to 'Show', request
         %td
-          -if can? :edit, @request
+          -if policy(request).update?
             = link_to 'Edit', edit_request_path(request)
         %td
-          -if can? :destroy, @request
-            = link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' }
+          -if policy(request).destroy?
+            = link_to 'Destroy', request, method: :delete, authenticity_token: true , data: { confirm: 'Are you sure?' }
 
 %br
 

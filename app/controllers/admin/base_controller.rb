@@ -1,3 +1,9 @@
 class Admin::BaseController < ApplicationController
-    load_and_authorize_resource
+    before_action :authorized_admin
+    # after_action :verify_policy_scoped
+
+    private 
+    def authorized_admin
+        authorize :admin
+    end
 end

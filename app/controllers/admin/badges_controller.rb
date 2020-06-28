@@ -3,7 +3,7 @@ class Admin::BadgesController < Admin::BaseController
   
   # GET /admin/badges/new
   def new
-    puts "in the new badges"
+    @badge = Badge.new
   end
  
   # POST admin/badges

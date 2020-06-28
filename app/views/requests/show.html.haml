@@ -26,7 +26,7 @@
   -if @request.backer.avatar.present?
     = image_tag @request.backer.avatar, alt: '', height: '', width: '60px', class: ''
   = @request.backer.name
--if can? :edit, @request
+-if policy(@request).update?
   = link_to 'Edit', edit_request_path(@request)
 \|
 = link_to 'Back', requests_path

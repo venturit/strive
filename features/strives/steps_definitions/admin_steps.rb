@@ -44,5 +44,5 @@ Given("I signed in and visit create new strive category page") do
   end
   
   Then("the system should prevent me from creating a duplicate strive category") do
-    page.should have_content "error prohibited this strive_category from being saved"
+    page.should have_content "Name has already been taken"
   end

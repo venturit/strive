@@ -1,8 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
   before_action :set_collections, only: [:new, :edit, :create, :update]
-  # TODO: authorization
-  # load_and_authorize_resource
   # GET /requests
   # GET /requests.json
   def index
@@ -16,6 +14,7 @@ class RequestsController < ApplicationController
 
   # GET /requests/new
   def new
+    @request = Request.new
   end
 
   # GET /requests/1/edit
@@ -68,10 +67,9 @@ class RequestsController < ApplicationController
       @request = Request.find(params[:id])
     end
     def set_collections
-      @request = Request.new
       @requestees = User.where(active: true).where.not(role: 1).all - [current_user]
       @backers = User.where(active: true).all - [current_user]
-      @recipients = User.where(active: true).all
+      @recipients =  [User.new(id: current_user.id, name: "Me")] + User.where(active: true).where.not(id: current_user.id).all
       @strive_categories = StriveCategory.all
       @badges = Badge.where(name: ["Bronze", "Silver"]).all
     end

@@ -74,6 +74,4 @@ gem 'mini_racer'
 
 gem 'dotenv'
 
-gem 'cancancan'
-
-# gem "pundit"
+gem 'pundit'

@@ -60,7 +60,7 @@ end
 
 
 Then("I should get an unauthorized error") do
-    @unauthorized_error.class.to_s.should == "CanCan::AccessDenied"
+    expect(page).to have_content("You are not authorized to perform this action.")
 end
 
 ##

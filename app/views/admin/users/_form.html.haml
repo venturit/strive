@@ -42,10 +42,10 @@
         %br/
         = f.label :Role
         %br/
-        = f.select :role, options_for_select(User::ROLES.map { |s| [s[1].to_s.humanize, s[0]] } , selected = @user.role )
+        = f.select :role, options_for_select(User::ROLES.map { |s| [s[1].to_s.humanize, s[0]] } ), {}, { :class=>"form-control"}
 
 
-      -if params[:action] == "new"
+      -if params[:action] == "new" || current_user.id==@user.id
         .field
           %br/
           = f.label :password

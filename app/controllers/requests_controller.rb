@@ -25,10 +25,9 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
     @request = Request.new(request_params.merge!(requestor_id: current_user.id))
-    # puts(@request.requestor_id)
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
+        format.html { redirect_to requests_url, notice: 'Request was successfully created.' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
@@ -42,7 +41,7 @@ class RequestsController < ApplicationController
   def update
     respond_to do |format|
       if @request.update(request_params.merge!(requestor_id: current_user.id))
-        format.html { redirect_to @request, notice: 'Request was successfully updated.' }
+        format.html { redirect_to requests_url, notice: 'Request was successfully updated.' }
         format.json { render :show, status: :ok, location: @request }
       else
         format.html { render :edit }

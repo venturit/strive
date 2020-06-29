@@ -24,7 +24,7 @@
         / Sidebar - Brand
         %a.sidebar-brand.d-flex.align-items-center.justify-content-center{:href => "/"}
           .sidebar-brand-icon.rotate-n-15
-            <i class="fas fa-grin-stars"></i>
+            %i.fas.fa-grin-stars.fa-fw
           .sidebar-brand-text.mx-3
             STRIVE
         / Divider
@@ -32,8 +32,14 @@
         / Nav Item - Leaderboard
         %li.nav-item.active
           %a.nav-link{:href => "/"}
-            <i class="fas fa-signal"></i>
+            %i.fas.fa-signal.fa-fw
             %span Leaderboard
+        %hr.sidebar-divider/
+        / Nav Item - Request a Badge
+        %li.nav-item
+          %a.nav-link{:href => "/requests"}
+            %i.fas.fa-comments.fa-fw
+            %span Request a Badge
         / Divider
         - if current_user.admin?
           / Divider
@@ -44,7 +50,7 @@
           / Nav Item - Pages Collapse Menu
           %li.nav-item
             %a.nav-link.collapsed{"aria-controls" => "collapsePages", "aria-expanded" => "true", "data-target" => "#collapsePages", "data-toggle" => "collapse", :href => "#"}
-              <i class="fas fa-users"></i>
+              %i.fas.fa-users.fa-fw
               %span Users
             #collapsePages.collapse{"aria-labelledby" => "headingPages", "data-parent" => "#accordionSidebar"}
               .bg-white.py-2.collapse-inner.rounded
@@ -54,13 +60,13 @@
           / Nav Item - Badges
           %li.nav-item
             %a.nav-link{:href => "/admin/badges"}
-              <i class="fas fa-medal"></i>
+              %i.fas.fa-medal.fa-fw
               %span Badges
           / Nav Item - Strive Categories
           %li.nav-item
             %a.nav-link{:href => "/admin/strive_categories"}
-              <i class="fas fa-puzzle-piece"></i>
-              %span Strive Categories
+              %i.fas.fa-puzzle-piece.fa-fw
+              %span Strive Categories 
         / Sidebar Toggler (Sidebar)
         .text-center.d-none.d-md-inline
           %button#sidebarToggle.rounded-circle.border-0

@@ -1,35 +1,31 @@
-%h1 Listing requests
+.row
+  .col-md-6
+    %h1.h3.mb-0.text-gray-800 Requests
+  .col-md-6.text-right.mb-4
+    = link_to 'New Request', new_request_path, class:"btn btn-primary"
 
-%table
-  %thead
-    %tr
-      %th Requestor
-      %th Recipient
-      %th Badge
-      %th Reason
-      %th Strive category
-      %th Backer
-      %th
-      %th
-      %th
-
-  %tbody
-    - @requests.each do |request|
-      %tr
-        %td= request.requestor_id
-        %td= request.recipient_id
-        %td= request.badge_id
-        %td= request.reason
-        %td= request.strive_category_id
-        %td= request.backer_id
-        %td= link_to 'Show', request
-        %td
+.row
+  / comment
+  - @requests.each do |request|
+    .row
+      .comment-avatar.col-md-1.col-sm-2.text-right
+        = image_tag request.badge.emblem, class: "rounded-circle img-fluid", width: "60%"
+      .comment-content.col-md-11.col-sm-10.text-left
+        .comment-meta
+          %h6.m-0.font-weight-bold.text-primary
+            -if request.requestor.id == request.recipient.id
+              = "#{time_ago_in_words(request.created_at)} ago, #{request.requestor.name} requested a #{request.badge.name} from #{request.requestee.name}, and #{request.backer.name} backs it."
+            -else
+              = "#{time_ago_in_words(request.created_at)} ago, #{request.requestor.name} requested a #{request.badge.name} for #{request.recipient.name} from #{request.requestee.name}, and #{request.backer.name} backs it."
+        .comment-body
+          %p
+            =request.reason
           -if policy(request).update?
-            = link_to 'Edit', edit_request_path(request)
-        %td
+            %span.small
+              = link_to 'Edit', edit_request_path(request), class: 'btn-primary btn btn-sm'
           -if policy(request).destroy?
-            = link_to 'Destroy', request, method: :delete, authenticity_token: true , data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Request', new_request_path
+            %span.small
+              = link_to 'Delete', request, method: :delete, authenticity_token: true , data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-sm'
+        %hr
+          %br/
+      / /comment

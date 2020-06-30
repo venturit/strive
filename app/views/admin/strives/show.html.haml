@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Awarder:
+  = @strife.awarder_id
+%p
+  %b Awardee:
+  = @strife.awardee_id
+%p
+  %b Badge:
+  = @strife.badge_id
+%p
+  %b Strive category:
+  = @strife.strive_category_id
+%p
+  %b Reason:
+  = @strife.reason
+%p
+  %b Cashed out:
+  = @strife.cashed_out
+
+= link_to 'Edit', edit_strife_path(@strife)
+\|
+= link_to 'Back', strives_path

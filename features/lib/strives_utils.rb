@@ -5,6 +5,9 @@ def create_strive_category()
     @strive_category = FactoryBot.create(:strive_category)
 end
 
+def create_badge()
+    @badge = FactoryBot.create(:badge)
+end
 
 def find_strive_category(name)
     @strive_category ||= StriveCategory.where(:name => @strive_category[:name]).first
@@ -33,4 +36,15 @@ def create_requestee(name="Charles Wood", email = "c.wood@venturit.com", role=5)
     @requestee ||= User.where(email: email).first
     @requestee.destroy unless @requestee.nil?
     @requestee = FactoryBot.create(:user, {name: name, email: email, role: role})
+end
+
+def create_request() 
+    create_requestor()
+    create_requestee()
+    create_backer()
+    create_recipient()
+    create_strive_category()
+    create_badge()
+    @request.destroy unless @request.nil?
+    @request = FactoryBot.create(:request, {requestee_id: @requestee.id, requestor_id: @requestor.id, recipient_id: @recipient.id, backer_id: @backer.id, badge_id: @badge.id, strive_category_id: @strive_category.id, reason: "Lorem Ipsum"})
 end

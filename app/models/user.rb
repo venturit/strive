@@ -4,7 +4,26 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable, :confirmable, :lockable, :timeoutable, :trackable
   validates :name, presence: true
 
+  has_many :strives, class_name: "Strive", :foreign_key => :awardee_id
+
   ROLES = {1=> :teammate, 2=> :supervisor, 3=> :project_manager, 4=> :client_manager, 5=> :director}
+
+  def strive_by_category(strive_category_id) 
+    strivez = self.strives.where(strive_category_id: strive_category_id).all
+    # # sort the badges
+    # bronzes = []
+    # silver = []
+    # gold = []
+    # platinum = []
+
+    # bns = strivez.where(badge_id: 1).each do ||
+    # end
+
+  end
+
+  def points
+      100
+  end
 
 
 end

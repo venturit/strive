@@ -20,12 +20,25 @@
         .comment-body
           %p
             =request.reason
-          -if policy(request).update?
+        .comment-body
+
+          -if request.strive.present?
+            .badge.badge-success
+              #{time_ago_in_words(request.strive.created_at)} ago, #{request.strive.awarder.name} awared this strive!
+          -else
+            
+            -if policy(request).update?
+              %span.small
+                = link_to 'Edit', edit_request_path(request), class: 'btn-secondary btn btn-sm'
+
+            -if policy(request).destroy?
+              %span.small
+                = link_to 'Delete', request, method: :delete, authenticity_token: true , data: { confirm: 'Are you sure you want to delete the request?' }, class: 'btn btn-secondary btn-sm'
+
+          -if policy(request).approve?
             %span.small
-              = link_to 'Edit', edit_request_path(request), class: 'btn-primary btn btn-sm'
-          -if policy(request).destroy?
-            %span.small
-              = link_to 'Delete', request, method: :delete, authenticity_token: true , data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-sm'
+              =link_to "Award Strive", user_strives_path(request.requestee, request_id: request.id), method: :post, authenticity_token: true , data: { confirm: "You are about to award a #{request.badge.name} strive to #{request.recipient.name} for, are you sure?" }, class: 'btn btn-primary btn-sm'
+
         %hr
           %br/
       / /comment

@@ -51,6 +51,9 @@ class RequestPolicy < ApplicationPolicy
       update?
    end
 
+   def approve?
+    @scope.requestee_id == @user.id
+   end
 
 
 

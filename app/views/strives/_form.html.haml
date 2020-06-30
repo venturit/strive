@@ -1,0 +1,22 @@
+= form_for [@user, @strive] do |f|
+  - if @strive.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@strive.errors.count, "error")} prohibited this strive from being saved:"
+      %ul
+        - @strive.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :strive_category_id
+    = f.collection_select :strive_category_id, @strive_categories, :id, :name, {}, { :class=>"form-control"}
+    %br/
+
+    .field
+    = f.label :badge_id
+    = f.collection_select :badge_id, @badges, :id, :name, {}, { :class=>"form-control"}
+    %br/
+  .field
+    = f.label :reason
+    = f.text_area :reason
+  %br/
+  .actions
+    = f.submit 'Save'

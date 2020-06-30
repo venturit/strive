@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @strive_categories = StriveCategory.order("name DESC").all
   end
   
 # GET /users/search

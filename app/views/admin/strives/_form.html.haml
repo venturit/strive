@@ -1,0 +1,28 @@
+= form_for @strife do |f|
+  - if @strife.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@strife.errors.count, "error")} prohibited this strife from being saved:"
+      %ul
+        - @strife.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :awarder_id
+    = f.number_field :awarder_id
+  .field
+    = f.label :awardee_id
+    = f.number_field :awardee_id
+  .field
+    = f.label :badge_id
+    = f.number_field :badge_id
+  .field
+    = f.label :strive_category_id
+    = f.number_field :strive_category_id
+  .field
+    = f.label :reason
+    = f.text_area :reason
+  .field
+    = f.label :cashed_out
+    = f.check_box :cashed_out
+  .actions
+    = f.submit 'Save'

@@ -6,3 +6,7 @@
 #     https: false
 #   )
 # end
+
+ActiveSupport::Inflector.inflections do |inflect|
+    inflect.irregular 'strive', 'strives'
+end

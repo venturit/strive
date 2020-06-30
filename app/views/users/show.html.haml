@@ -6,11 +6,17 @@
           .col-lg-12
             .p-5
               .text-center
-                %h1.h4.text-gray-900.mb-4 #{@user.name}
+                %h1.h4.text-gray-900.mb-4 #{@user.name} (#{@user.points()})
+            = link_to 'Award a Strive', new_user_strive_path(@user), class:"btn btn-secondary"
+            %p#notice #{notice}
+            =image_tag @user.avatar, width: "200px"
 
-            %p#notice= notice
-            = image_tag @user.avatar, width: "200px"
-            %br/
-            = link_to 'Back', root_path
-            |
-            = link_to 'Edit', edit_admin_user_path(@user)
+
+            %p
+              -@strive_categories.each do |strive_category|
+                =strive_category.name
+                %br 
+                -@user.strive_by_category(strive_category.id).each do |strive|
+                  =image_tag strive.badge.emblem, width: "80px"
+                  =strive.reason
+                  %br 

@@ -1,0 +1,29 @@
+%h1 Listing strives
+
+%table
+  %thead
+    %tr
+      %th Awarder
+      %th Awardee
+      %th Badge
+      %th Strive category
+      %th Reason
+      %th Cashed out
+      %th
+      %th
+      %th
+
+  %tbody
+    - @strives.each do |strife|
+      %tr
+        %td= strife.awarder_id
+        %td= strife.awardee_id
+        %td= strife.badge_id
+        %td= strife.strive_category_id
+        %td= strife.reason
+        %td= strife.cashed_out
+        %td= link_to 'Show', strive
+        %td= link_to 'Edit', edit_admin_strive_path(strive)
+        %td= link_to 'Destroy', strive, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br

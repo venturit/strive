@@ -37,4 +37,16 @@ FactoryBot.define do
     strive_category_id {}
     backer_id {}
   end
+
+
+  factory :strive do
+    awarder_id {}
+    awardee_id {}
+    badge_id {}
+    strive_category_id {}
+    reason {}
+    request_id {}
+    cashed_out {false}
+  end
+  
 end

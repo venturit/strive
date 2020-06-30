@@ -6,4 +6,6 @@ class Request < ApplicationRecord
     belongs_to :badge, class_name: "Badge", foreign_key: "badge_id"
     belongs_to :strive_category, class_name: "StriveCategory", foreign_key: "strive_category_id"
     validates :reason, presence: true
+
+    has_one :strive
 end

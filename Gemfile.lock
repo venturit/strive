@@ -332,7 +332,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack (>= 6.0.3.2)
   aws-sdk-s3
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.5.0)

@@ -1,10 +1,12 @@
+.row.justify-content-center
+  .col-xl-10.col-lg-12.col-md-9
+    .card.o-hidden.border-0.shadow-lg.my-5
+      .card-body.p-100
+        .row
+          .col-lg-12
+            .p-5
+              .text-center
+                %h1.h4.text-gray-900.mb-4 Award a Strive to #{@user.name}
+            = render 'form'
 
-
-%h1 Award a Strive to #{@user.name}
-
--if @user.avatar.present?
-    =image_tag @user.avatar, class: "circle", width: "60px"
-
-= render 'form'
-
-= link_to 'Back', user_path(@user)
+            = link_to 'Back', user_path(@user)

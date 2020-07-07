@@ -177,7 +177,8 @@
               %li.nav-item.dropdown.no-arrow
                 %a#userDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                   %span.mr-2.d-none.d-lg-inline.text-gray-600.small #{current_user.name}
-                  = image_tag current_user.avatar, width: "60px", class: "img-profile rounded-circle"
+                  -if current_user.avatar.present?
+                    = image_tag current_user.avatar, width: "60px", class: "img-profile rounded-circle"
                 / Dropdown - User Information
                 .dropdown-menu.dropdown-menu-right.shadow.animated--grow-in{"aria-labelledby" => "userDropdown"}
                   %a.dropdown-item{:href => "#"}

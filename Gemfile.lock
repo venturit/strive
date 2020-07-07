@@ -218,6 +218,7 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    pg (0.21.0)
     popper_js (1.16.0)
     protobuf-cucumber (3.10.8)
       activesupport (>= 3.2)
@@ -371,6 +372,7 @@ DEPENDENCIES
   mailslurp_client
   mini_magick
   mini_racer
+  pg (~> 0.18)
   puma (~> 4.1)
   pundit
   rails (~> 6.0.3, >= 6.0.3.2)

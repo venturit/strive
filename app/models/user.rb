@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :strives, class_name: "Strive", :foreign_key => :awardee_id
 
+  has_many :requests, class_name: "Request", :foreign_key => :recipient_id
+
   ROLES = {1=> :teammate, 2=> :supervisor, 3=> :project_manager, 4=> :client_manager, 5=> :director}
 
   def strive_by_category(strive_category_id) 

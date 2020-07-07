@@ -1,6 +1,6 @@
 Feature: As a requestee, Charles Wood, I want to award a strive for the request
   As a requestee of a request 
-  I want award the strive requested
+  I want to award the strive requested
 
     Scenario: Requestee can award a strive from the request 
       Given I, Charles, signed in and visit requests page

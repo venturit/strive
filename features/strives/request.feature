@@ -1,4 +1,4 @@
-Feature: As a teammate I can request a for fellow teammate
+Feature: As a teammate I can request a strive for a fellow teammate
   As a teammate of Venturit X project 
   I want to request a silver strive badge for Joe Cocker for going above and beyond to help with docker deployment
 

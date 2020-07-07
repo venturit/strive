@@ -1,22 +1,81 @@
 .row.justify-content-center
-  .col-xl-10.col-lg-12.col-md-9
+  .col-lg-12
     .card.o-hidden.border-0.shadow-lg.my-5
       .card-body.p-100
         .row
-          .col-lg-12
-            .p-5
-              .text-center
-                %h1.h4.text-gray-900.mb-4 #{@user.name} (#{@user.points()})
-            = link_to 'Award a Strive', new_user_strive_path(@user), class:"btn btn-secondary"
-            %p#notice #{notice}
-            =image_tag @user.avatar, width: "200px"
+          .col-lg-12.text-center
+            %h4.h4 #{@user.name}
+            %br
+        .row
+          .col-lg-4
+            .text-center
+              = image_tag @user.avatar, width: "200px", class: "img-profile rounded-circle"
+            .text-center
+              %br
+              = link_to 'Award a Strive', new_user_strive_path(@user), class:"btn btn-primary btn-user" 
+          .col-lg-8.mb-4
+            .col-lg-12.mb-4
+              .card.border-left-primary.shadow.h-100.py-2
+                .card-body
+                  .row.no-gutters.align-items-center
+                    .col.mr-2
+                      .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Ranking
+                      .h5.mb-0.font-weight-bold.text-gray-800 24
+                    .col-auto
+                      %i.fas.fa-rocket.fa-2x.text-gray-300
+            .col-lg-12.mb-4
+              .card.border-left-success.shadow.h-100.py-2
+                .card-body
+                  .row.no-gutters.align-items-center
+                    .col.mr-2
+                      .text-xs.font-weight-bold.text-success.text-uppercase.mb-1  Total Rewards Earned
+                      .h5.mb-0.font-weight-bold.text-gray-800 $40
+                    .col-auto
+                      %i.fas.fa-money-bill-wave-alt.fa-2x.text-gray-300
+            .col-lg-12.mb-4
+              .card.border-left-warning.shadow.h-100.py-2
+                .card-body
+                  .row.no-gutters.align-items-center
+                    .col.mr-2
+                      .text-xs.font-weight-bold.text-warning.text-uppercase.mb-1 Total Rewards Spent
+                      .h5.mb-0.font-weight-bold.text-gray-800 $4
+                    .col-auto
+                      %i.fas.fa-hand-holding-usd.fa-2x.text-gray-300 
+            .col-lg-12.mb-4
+              .card.border-left-info.shadow.h-100.py-2
+                .card-body
+                  .row.no-gutters.align-items-center
+                    .col.mr-2
+                      .text-xs.font-weight-bold.text-info.text-uppercase.mb-1 Total Badges 
+                      .h5.mb-0.font-weight-bold.text-gray-800 10
+                    .col-auto
+                      %i.fas.fa-medal.fa-2x.text-gray-300   
 
+%h2 Badges
+-@strive_categories.each do |strive_category|
+  / Basic Card Example
+  .card.shadow.mb-4
+    .card-header.py-3
+      %h6.m-0.font-weight-bold.text-primary #{strive_category.name}
+    .card-body
+      -if @user.strive_by_category(strive_category.id).size == 0
+        Still working on this strive
+        %i.fa.fa-grin-beam
 
-            %p
-              -@strive_categories.each do |strive_category|
-                =strive_category.name
-                %br 
-                -@user.strive_by_category(strive_category.id).each do |strive|
-                  =image_tag strive.badge.emblem, width: "80px"
-                  =strive.reason
-                  %br 
+      -else
+        -@user.strive_by_category(strive_category.id).each do |strive|
+          =image_tag strive.badge.emblem, width: "50px", alt: strive.reason, title: strive.reason
+
+%h2 Requests
+.row
+  .col-lag-12.m-4
+    -if @user.requests.size == 0
+      %p
+        No requests yet 
+        %i.fa.fa-grin-beam
+      %br
+
+    -else
+      - @user.requests.each do |request|
+        = render partial: "requests/request_item", locals: { request: request }
+

@@ -9,7 +9,8 @@
         .row
           .col-lg-4
             .text-center
-              = image_tag @user.avatar, width: "200px", class: "img-profile rounded-circle"
+              -if @user.avatar.present?
+                = image_tag @user.avatar, width: "200px", class: "img-profile rounded-circle"
             .text-center
               %br
               = link_to 'Award a Strive', new_user_strive_path(@user), class:"btn btn-primary btn-user" 

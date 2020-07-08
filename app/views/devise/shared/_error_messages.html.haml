@@ -1,8 +1,21 @@
-- if resource.errors.any?
+- if resource.errors.any? && flash.blank?
   .label.alert.alert-danger
     %strong
       Oh Snap!
     - resource.errors.full_messages.each do |message|
       = message
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
   %br
 
+-unless flash.blank?
+  -if flash[:notice].present?
+    .alert.alert-success{role:"alert"}
+      = flash[:notice] 
+      %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+        %span{"aria-hidden" => "true"} ×
+  -if flash[:alert].present?
+    .alert.alert-warning{role:"alert"}
+      = flash[:alert] 
+      %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+        %span{"aria-hidden" => "true"} ×

@@ -24,8 +24,28 @@ class User < ApplicationRecord
   end
 
   def points
-      100
+    self.strives.size
   end
 
+  #get the rank  
+  def rank
+    ranc = 0
+    ranks = Strive.group('awardee_id').order('count_id desc').count('id')
+    ranks.each_with_index do |(key,value),index|
+      if key == self.id
+        ranc = index+1
+      end
+    end
+    return ranc
+  end
+
+
+  def self.leaderboard
+    # TODO: optimize 
+    leaders = User.where(id: Strive.group('awardee_id').order('count_id desc').count('id').keys).where(active: true).all
+    others = User.where.not(id: leaders).where(active: true).all
+    all_users = leaders + others
+    return all_users
+  end
 
 end

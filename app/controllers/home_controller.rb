@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @users = User.where(active: true).all
+    @users = User.leaderboard
   end
 end

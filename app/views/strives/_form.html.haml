@@ -7,12 +7,12 @@
           %li = message
   .field
     = f.label :strive_category_id
-    = f.collection_select :strive_category_id, @strive_categories, :id, :name, {}, { :class=>"form-control"}
+    = f.collection_select :strive_category_id, policy(@strive_categories).allowed_cats, :id, :name, {}, { :class=>"form-control"}
     %br/
 
   .field
     = f.label :badge_id
-    = f.collection_select :badge_id, @badges, :id, :name, {}, { :class=>"form-control"}
+    = f.collection_select :badge_id, policy(@badges).allowed_badges, :id, :name, {}, { :class=>"form-control"}
     %br/
   .field
     = f.label :Reason

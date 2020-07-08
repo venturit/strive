@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_07_08_174532) do
     t.boolean "cashed_out", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "parent_id"
     t.index ["awardee_id"], name: "index_strives_on_awardee_id"
     t.index ["awarder_id"], name: "index_strives_on_awarder_id"
     t.index ["badge_id"], name: "index_strives_on_badge_id"

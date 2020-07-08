@@ -28,7 +28,7 @@ class StrivesController < ApplicationController
     end
 
     respond_to do |format|
-      if @strive.save
+      if @strive.award
         format.html { redirect_to user_path(@user), notice: 'Strive was successfully created.' }
         format.json { render :show, status: :created, location: @strive }
       else
@@ -43,7 +43,7 @@ class StrivesController < ApplicationController
 
     def set_collections
       @strive_categories = StriveCategory.order("name DESC").all
-      @badges = Badge.where(name: ["Bronze", "Silver"]).all
+      @badges = Badge.where(id: [ENV['BRONZE_ID'].to_i,ENV['SILVER_ID'].to_i]).all
 
     end
 

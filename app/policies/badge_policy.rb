@@ -1,4 +1,4 @@
-class StrivePolicy < ApplicationPolicy
+class BadgePolicy < ApplicationPolicy
   class Scope < Scope
     def initialize(user, scope)
       @user  = user
@@ -24,10 +24,11 @@ class StrivePolicy < ApplicationPolicy
   end
 
   def allowed_badges
-    if User::ROLES[@user.role_id].eql?('teammate')
-      @scope.where(name: ["Bronze"]).all
+
+    if @user.role.blank? || @user.role == ENV['TEAMMATE_ID'].to_i 
+      return @scope.where(id: ENV['BRONZE_ID'].to_i).all
     else
-      @scope
+      return @scope
     end
     
   end

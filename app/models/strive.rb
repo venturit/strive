@@ -20,7 +20,38 @@ class Strive < ApplicationRecord
 # message: "should happen once per year" }
 
 
-    #award rules if silver is selected award three bronze
+    #award rules if silver is selected award three bronze4
+    def award
+
+       if self.valid?
+        if self.badge_id == ENV['SILVER_ID'].to_i
+            # award three bronzes
+            b_to_s = ENV['BRONZE_TO_SILVER'].to_i
+            self.badge_id = ENV['BRONZE_ID']
+            saved = self.save
+            if saved
+                parent = self
+                (b_to_s-1).times do 
+                    strive = parent.dup
+                    strive.parent_id = parent.id
+                    strive.request_id = nil
+                    saved = strive.save
+                    if saved == false
+                        return saved
+                    end
+                end
+            end
+            return saved
+        else
+            return self.save
+        end
+
+       else
+        return false
+       end
+    end
+
+
 
 
 

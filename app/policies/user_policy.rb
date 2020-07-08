@@ -13,7 +13,11 @@ class UserPolicy < ApplicationPolicy
     private
     attr_reader :user, :scope
   end
-
+  def initialize(user, scope)
+    @user  = user
+    @scope = scope
+  end
+  
   def index?
    @user.admin?
   end
@@ -40,6 +44,11 @@ class UserPolicy < ApplicationPolicy
 
   def destroy?
     @user.admin?
+  end
+
+
+  def award?
+    return @scope.id !=@user.id
   end
 
 

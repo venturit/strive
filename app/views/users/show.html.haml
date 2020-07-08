@@ -13,7 +13,8 @@
                 = image_tag @user.avatar, width: "200px", class: "img-profile rounded-circle"
             .text-center
               %br
-              = link_to 'Award a Strive', new_user_strive_path(@user), class:"btn btn-primary btn-user" 
+              -if policy(@user).award?
+                = link_to 'Award a Strive', new_user_strive_path(@user), class:"btn btn-primary btn-user" 
           .col-lg-8.mb-4
             .col-lg-12.mb-4
               .card.border-left-primary.shadow.h-100.py-2
@@ -21,7 +22,7 @@
                   .row.no-gutters.align-items-center
                     .col.mr-2
                       .text-xs.font-weight-bold.text-primary.text-uppercase.mb-1 Ranking
-                      .h5.mb-0.font-weight-bold.text-gray-800 24
+                      .h5.mb-0.font-weight-bold.text-gray-800 #{@user.rank}
                     .col-auto
                       %i.fas.fa-rocket.fa-2x.text-gray-300
             .col-lg-12.mb-4
@@ -48,7 +49,7 @@
                   .row.no-gutters.align-items-center
                     .col.mr-2
                       .text-xs.font-weight-bold.text-info.text-uppercase.mb-1 Total Badges 
-                      .h5.mb-0.font-weight-bold.text-gray-800 10
+                      .h5.mb-0.font-weight-bold.text-gray-800 #{@user.points}
                     .col-auto
                       %i.fas.fa-medal.fa-2x.text-gray-300   
 

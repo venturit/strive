@@ -67,12 +67,13 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.default_url_options = { host:  ENV['DOMAIN'] }
-
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default charse: 'utf-8'
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     user_name: ENV['SENDGRID_USER'],
-    api_key: ENV['SENDGRID_API_KEY'],
+    password: ENV['SENDGRID_API_KEY'],
     domain: ENV['DOMAIN'],
     address: 'smtp.sendgrid.net',
     port: 465,

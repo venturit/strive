@@ -2,11 +2,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
   before_action :force_json, only: :search
 
-  # GET /users
-  def index
-    @users = User.where(active: true).all
-  end
-
   # GET /users/1
   def show
     @strive_categories = StriveCategory.order("name DESC").all

@@ -9,7 +9,8 @@
                 %h1.h4.text-gray-900.mb-4 #{@user.name}
 
             %p#notice= notice
-            = image_tag @user.avatar, width: "200px"
+            -if @user.avatar.present?
+              = image_tag @user.avatar, width: "200px", class: "img-profile rounded-circle"
             %br/
             = link_to 'Back', admin_user_path
             |

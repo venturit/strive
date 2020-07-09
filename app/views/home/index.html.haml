@@ -18,11 +18,13 @@
     %h1.h3.mb-0.text-gray-800 Challengers
 .row
   .card-deck
-    - @users[8..@users.size].shuffle!.each do |user|
-      .col-xl-3.col-md-6.mb-3
-        .card{:style => "width: 15rem;"}
-          -if user.avatar.present?
-            =image_tag user.avatar, class: "card-img-top", width:"100"
-          .card-body
-            %h5.card-title 
-              = link_to user.name, user_path(user)
+    - challengers = @users[8..@users.size]
+    -if challengers.present?
+      - challengers.shuffle!.each do |user|
+        .col-xl-3.col-md-6.mb-3
+          .card{:style => "width: 15rem;"}
+            -if user.avatar.present?
+              =image_tag user.avatar, class: "card-img-top", width:"100"
+            .card-body
+              %h5.card-title 
+                = link_to user.name, user_path(user)

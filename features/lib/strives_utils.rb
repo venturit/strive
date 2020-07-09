@@ -1,8 +1,9 @@
 # https://github.com/RailsApps/rails3-devise-rspec-cucumber
 ### UTILITY METHODS ###
 
-def create_strive_category()
-    @strive_category = FactoryBot.create(:strive_category)
+def create_strive_category(name='Venturian')
+    # @strive_category.destroy unless (@strive_category.nil? & @strive_category.name == name)
+    @strive_category = FactoryBot.create(:strive_category,  {name: name})
 end
 
 def create_badge()
@@ -47,4 +48,13 @@ def create_request()
     create_badge()
     @request.destroy unless @request.nil?
     @request = FactoryBot.create(:request, {requestee_id: @requestee.id, requestor_id: @requestor.id, recipient_id: @recipient.id, backer_id: @backer.id, badge_id: @badge.id, strive_category_id: @strive_category.id, reason: "Lorem Ipsum"})
+end
+
+def create_strive() 
+    create_requestee()
+    create_recipient()
+    create_strive_category()
+    create_badge()
+    @strive.destroy unless @strive.nil?
+    @request = FactoryBot.create(:strive, {awarder_id: @requestee.id, awardee_id: @recipient.id, badge_id: @badge.id, strive_category_id: @strive_category.id, reason: "Lorem Ipsum"})
 end

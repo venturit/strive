@@ -29,10 +29,10 @@ class StrivesController < ApplicationController
 
     respond_to do |format|
       if @strive.award
-        format.html { redirect_to user_path(@user), notice: 'Strive was successfully created.' }
+        format.html { redirect_to user_path(@user), notice: 'Strive was successfully awarded.' }
         format.json { render :show, status: :created, location: @strive }
       else
-        format.html { redirect_to requests_path, notice: "Oops! #{@strive.errors.full_messages}" }
+        format.html { redirect_to requests_path, notice: "#{@strive.errors.first[1]}" }
         format.json { render json: @strive.errors, status: :unprocessable_entity }
       end
     end

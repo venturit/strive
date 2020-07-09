@@ -14,6 +14,20 @@ class StrivePolicy < ApplicationPolicy
 
     end
 
+    def resolve_period
+   
+      strive_given = Strive.where(awarder_id: scope.awarder_id, awardee_id: scope.awardee_id, strive_category_id: scope.strive_category_id).where(created_at: ENV['STRIVE_PERIOD'].to_i.days.ago..1.days.from_now).all()
+      
+      if strive_given.size > 0
+        scope.errors.add(:reason, "Oh Snap! You have already awarded a similar strive in the last two weeks.")
+        return scope
+      else
+        return scope
+      end
+
+    end
+
+
     private
     attr_reader :user, :scope
   end

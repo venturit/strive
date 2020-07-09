@@ -13,8 +13,9 @@ class Strive < ApplicationRecord
 
     # belongs_to :request
 
-    validates_uniqueness_of :request_id, message: "can award only one strive",  if: -> { request_id.present? }
+    validates_uniqueness_of :request_id, message: "Oh Snap! You can only award one strive per request.",  if: -> { request_id.present? }
 
+    after_validation {StrivePolicy::Scope.new(nil, self).resolve_period}
 
 # { scope: :year,
 # message: "should happen once per year" }
@@ -22,7 +23,7 @@ class Strive < ApplicationRecord
 
     #award rules if silver is selected award three bronze4
     def award
-
+       
        if self.valid?
         if self.badge_id == ENV['SILVER_ID'].to_i
             # award three bronzes

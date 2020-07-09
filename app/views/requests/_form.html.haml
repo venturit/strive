@@ -15,7 +15,7 @@
     = f.collection_select :strive_category_id, @strive_categories, :id, :name, {}, { :class=>"form-control"}
     %br/
   .field
-    = f.label :requestee_id
+    = f.label "Request From"
     = f.collection_select :requestee_id, @requestees, :id, :name, {}, { :class=>"form-control"}
     %br/
   .field
